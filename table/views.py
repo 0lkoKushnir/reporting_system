@@ -1,12 +1,11 @@
 from django.shortcuts import render
-import table.models
-from django.http import HttpResponse
-import pyodbc
 from .settings import *
+import table.models
+import pyodbc
 
 
 def home(request):
-	return HttpResponse('<h1>HOME TABLES</h1>')
+	return render(request, 'table/home.html')
 
 
 def CustomerView(request):
