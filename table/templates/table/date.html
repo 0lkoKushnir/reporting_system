@@ -1,0 +1,27 @@
+{% extends "table/base_table.html" %}
+{% block content %}
+	<table class="table table-bordered table-striped">
+		<tr>
+			<th>ID</th>
+			<th>Date</th>
+			<th>Day</th>
+			<th>Month</th>
+			<th>Year</th>
+			<th>Weekday</th>
+			<th>Week in year</th>
+			<th>Week in month</th>
+		</tr>
+		{% for data in DateModel %}
+		<tr>
+			<td>{{ data.DateID }}</td>
+			<td>{{ data.TheDate }}</td>
+			<td>{{ data.TheDay }}</td>
+			<td>{{ data.TheMonthName }}</td>
+			<td>{{ data.TheYear }}</td>
+			<td>{{ data.TheWeekDayName }}</td>
+			<td>{{ data.TheWeekInYear }}</td>
+			<td>{{ data.TheWeekInMonth }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+{% endblock content %}

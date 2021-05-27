@@ -1,0 +1,31 @@
+{% extends "table/base_table.html" %}
+{% block content %}
+	<table class="table table-bordered table-striped">
+		<tr>
+			<th>ID</th>
+			<th>Order</th>
+			<th>Location ID</th>
+			<th>Product ID</th>
+			<th>Customer ID</th>
+			<th>Date ID</th>
+			<th>Quantity</th>
+			<th>Net amount</th>
+			<th>Tax</th>
+			<th>Total amount</th>
+		</tr>
+		{% for data in OrderModel %}
+		<tr>
+			<td>{{ data.ID }}</td>
+			<td>{{ data.OrderID }}</td>
+			<td>{{ data.LocationID }}</td>
+			<td>{{ data.ProductID }}</td>
+			<td>{{ data.CustomerID }}</td>
+			<td>{{ data.DateID }}</td>
+			<td>{{ data.Quantity }}</td>
+			<td>{{ data.NetAmount }}</td>
+			<td>{{ data.Tax }}</td>
+			<td>{{ data.TotalAmount }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+{% endblock content %}

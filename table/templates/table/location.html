@@ -1,0 +1,21 @@
+{% extends "table/base_table.html" %}
+{% block content %}
+	<table class="table table-bordered table-striped">
+		<tr>
+			<th>ID</th>
+			<th>Region</th>
+			<th>Country</th>
+			<th>State</th>
+			<th>City</th>
+		</tr>
+		{% for data in LocationModel %}
+		<tr>
+			<td>{{ data.LocationID }}</td>
+			<td>{{ data.Region }}</td>
+			<td>{{ data.Country }}</td>
+			<td>{{ data.State }}</td>
+			<td>{{ data.City }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+{% endblock content %}
