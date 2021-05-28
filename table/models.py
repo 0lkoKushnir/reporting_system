@@ -1,7 +1,7 @@
 from django.db import models
 
 class CustomerModel(models.Model):
-	ID = models.IntegerField()
+	CustomerID = models.IntegerField()
 	FullName = models.CharField(max_length=101)
 	Age = models.IntegerField()
 	Income = models.IntegerField()
@@ -9,7 +9,7 @@ class CustomerModel(models.Model):
 
 
 class DateModel(models.Model):
-	ID = models.IntegerField()
+	DateID = models.IntegerField()
 	Date = models.DateField()
 	Day = models.IntegerField()
 	Month = models.CharField(max_length=50)
@@ -20,7 +20,7 @@ class DateModel(models.Model):
 
 
 class OrderModel(models.Model):
-	ID = models.IntegerField()
+	OrderlineID = models.IntegerField()
 	Order = models.IntegerField()
 	Location = models.IntegerField()
 	Product = models.IntegerField()
@@ -33,7 +33,7 @@ class OrderModel(models.Model):
 
 
 class LocationModel(models.Model):
-	ID = models.IntegerField()
+	LocationID = models.IntegerField()
 	Region = models.CharField(max_length=50)
 	Country = models.CharField(max_length=50)
 	State = models.CharField(max_length=50)
@@ -41,7 +41,7 @@ class LocationModel(models.Model):
 
 
 class ProductModel(models.Model):
-	ID = models.IntegerField()
+	ProductID = models.IntegerField()
 	Title = models.CharField(max_length=50)
 	Actor = models.CharField(max_length=50)
 	Category = models.CharField(max_length=50)
