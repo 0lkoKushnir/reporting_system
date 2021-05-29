@@ -10,9 +10,9 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'table/main.css' %}">
 
 	{% if title %}
-		<title>Chartly Tables - {{ title }}</title>
+		<title>Chartly - {{ title }}</title>
 	{% else %}
-		<title>Chartly Tables</title>
+		<title>Chartly</title>
 	{% endif %}
 </head>
 <body>
@@ -25,16 +25,20 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarToggle">
 					<div class="navbar-nav mr-auto">
-						<a class="nav-item nav-link" href="{% url 'tables-customer' %}">Customer</a>
-						<a class="nav-item nav-link" href="{% url 'tables-date' %}">Date</a>
-						<a class="nav-item nav-link" href="{% url 'tables-location' %}">Location</a>
-						<a class="nav-item nav-link" href="{% url 'tables-order' %}">Order</a>
-						<a class="nav-item nav-link" href="{% url 'tables-product' %}">Product</a>
+					{% if user.is_authenticated %}
+							<a class="nav-item nav-link" href="{% url 'reporting_system-home' %}">Home</a>
+							<a class="nav-item nav-link" href="{% url 'tables-home' %}">Tables</a>
+					{% endif %}
 					</div>
 					<!-- Navbar Right Side -->
 					<div class="navbar-nav">
-						<a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-						<a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+						{% if user.is_authenticated %}
+							<a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+							<a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+						{% else %}
+							<a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+							<a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+						{% endif %}
 					</div>
 				</div>
 			</div>
@@ -42,9 +46,14 @@
 	</header>
 
 	<main class="container">
-		<div class="row">
-			{% block content %}{% endblock %}
-		</div>
+		{% if messages %}
+			{% for message in messages%}
+				<div class="alert alert-{{ message.tags }}">
+					{{ message }}
+				</div>
+			{% endfor %}
+		{% endif %}
+		{% block content %}{% endblock %}
 	</main>
 
 	<!-- Optional JavaScript -->
