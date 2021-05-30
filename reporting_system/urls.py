@@ -26,6 +26,7 @@ urlpatterns = [
     path('', user_views.home, name='reporting_system-home'),
     #path('', auth_views.LoginView.as_view(template_name='user/login.html'), name='reporting_system-home'),
     path('table/', include('table.urls')),
+    path('report/', include('report.urls')),
     path('register/', user_views.register, name='register'),
     path('profile/', user_views.profile, name='profile'),
     path('login/', auth_views.LoginView.as_view(template_name='user/login.html'), name='login'),

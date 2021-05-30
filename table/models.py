@@ -25,7 +25,7 @@ class OrderModel(models.Model):
 	Location = models.IntegerField()
 	Product = models.IntegerField()
 	Customer = models.IntegerField()
-	Date = models.IntegerField
+	Date = models.IntegerField()
 	Quantity = models.IntegerField()
 	NetAmount = models.FloatField()
 	Tax = models.FloatField()

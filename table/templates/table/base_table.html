@@ -10,9 +10,9 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'table/main.css' %}">
 
 	{% if title %}
-		<title>Chartly Tables - {{ title }}</title>
+		<title>Chartly Таблиці - {{ title }}</title>
 	{% else %}
-		<title>Chartly Tables</title>
+		<title>Chartly Таблиці</title>
 	{% endif %}
 </head>
 <body>
@@ -25,16 +25,16 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarToggle">
 					<div class="navbar-nav mr-auto">
-						<a class="nav-item nav-link" href="{% url 'tables-customer' %}">Customer</a>
-						<a class="nav-item nav-link" href="{% url 'tables-date' %}">Date</a>
-						<a class="nav-item nav-link" href="{% url 'tables-location' %}">Location</a>
-						<a class="nav-item nav-link" href="{% url 'tables-order' %}">Order</a>
-						<a class="nav-item nav-link" href="{% url 'tables-product' %}">Product</a>
+						<a class="nav-item nav-link" href="{% url 'tables-customer' %}">Клієнти</a>
+						<a class="nav-item nav-link" href="{% url 'tables-date' %}">Дати</a>
+						<a class="nav-item nav-link" href="{% url 'tables-location' %}">Локації</a>
+						<a class="nav-item nav-link" href="{% url 'tables-order' %}">Замовлення</a>
+						<a class="nav-item nav-link" href="{% url 'tables-product' %}">Товари</a>
 					</div>
 					<!-- Navbar Right Side -->
 					<div class="navbar-nav">
-						<a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-						<a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+						<a class="nav-item nav-link" href="{% url 'profile' %}">Профіль</a>
+						<a class="nav-item nav-link" href="{% url 'logout' %}">Вийти</a>
 					</div>
 				</div>
 			</div>
@@ -43,9 +43,9 @@
 
 	<main class="container">
 		{% if title %}
-			<h1>Tables - {{ table_name }}</h1>
+			<h1>Таблиці - {{ table_name }}</h1>
 		{% else %}
-			<h1>Tables</h1>
+			<h1>Таблиці</h1>
 		{% endif %}
 		<div class="row">
 			{% block content %}{% endblock %}
