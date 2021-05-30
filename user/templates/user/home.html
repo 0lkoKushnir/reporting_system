@@ -1,4 +1,19 @@
 {% extends "user/base.html" %}
 {% block content %}
-	
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ user.username }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+      </div>
+    </div>
+    <table class="table table-bordered table-striped" style="text-align: center;">
+		<tr><th>Welcome to Chartly! What you want to overview?</th></tr>
+		<tr><th><a href="{% url 'tables-home' %}">Tables</a></th></tr>
+		<tr><th><a href="#">Reports</a></th></tr>
+		<tr><th><a href="#">Dashboards</a></th></tr>
+		<tr><th><a href="{% url 'profile' %}">Profile info</a></th></tr>
+	</table>
 {% endblock content %}

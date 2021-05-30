@@ -13,7 +13,7 @@ def CustomerView(request):
 	cursor = conn.cursor()
 	cursor.execute('SELECT * FROM dbo.Customer WHERE CustomerID <= 1000')
 	result = cursor.fetchall()
-	return render(request, 'table/customer.html', {'CustomerModel':result, 'title':'Customer'})
+	return render(request, 'table/customer.html', {'CustomerModel':result, 'title':'Customer', 'table_name':'Customer'})
 
 
 def DateView(request):
@@ -21,7 +21,7 @@ def DateView(request):
 	cursor = conn.cursor()
 	cursor.execute('SELECT * FROM dbo.Date WHERE TheYear=2009')
 	result = cursor.fetchall()
-	return render(request, 'table/date.html', {'DateModel':result, 'title':'Date'})
+	return render(request, 'table/date.html', {'DateModel':result, 'title':'Date', 'table_name':'Date'})
 
 
 def OrderView(request):
@@ -29,7 +29,7 @@ def OrderView(request):
 	cursor = conn.cursor()
 	cursor.execute('SELECT * FROM dbo.FactOrder WHERE ID <= 1000')
 	result = cursor.fetchall()
-	return render(request, 'table/order.html', {'OrderModel':result, 'title':'Order'})
+	return render(request, 'table/order.html', {'OrderModel':result, 'title':'Order', 'table_name':'Order'})
 
 
 def LocationView(request):
@@ -37,7 +37,7 @@ def LocationView(request):
 	cursor = conn.cursor()
 	cursor.execute('SELECT * FROM dbo.Location WHERE LocationID <= 1000')
 	result = cursor.fetchall()
-	return render(request, 'table/location.html', {'LocationModel':result, 'title':'Location'})
+	return render(request, 'table/location.html', {'LocationModel':result, 'title':'Location', 'table_name':'Location'})
 
 
 def ProductView(request):
@@ -45,4 +45,4 @@ def ProductView(request):
 	cursor = conn.cursor()
 	cursor.execute('SELECT * FROM dbo.Product WHERE ID <= 1000')
 	result = cursor.fetchall()
-	return render(request, 'table/product.html', {'ProductModel':result, 'title':'Product'})
+	return render(request, 'table/product.html', {'ProductModel':result, 'title':'Product', 'table_name':'Product'})

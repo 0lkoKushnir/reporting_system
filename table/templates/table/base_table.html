@@ -42,6 +42,11 @@
 	</header>
 
 	<main class="container">
+		{% if title %}
+			<h1>Tables - {{ table_name }}</h1>
+		{% else %}
+			<h1>Tables</h1>
+		{% endif %}
 		<div class="row">
 			{% block content %}{% endblock %}
 		</div>
