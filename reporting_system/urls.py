@@ -22,7 +22,7 @@ from user import views as user_views
 #from . import views as home_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path('', user_views.home, name='reporting_system-home'),
     #path('', auth_views.LoginView.as_view(template_name='user/login.html'), name='reporting_system-home'),
     path('table/', include('table.urls')),

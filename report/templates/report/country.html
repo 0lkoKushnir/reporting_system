@@ -1,0 +1,52 @@
+{% extends "user/base.html" %}
+{% block content %}
+    <h1>Продаж по країнах</h1>
+    <script>
+    $(document).ready(function(){
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [{% for item in qs %}'{{ item.Country }}',{% endfor %}],
+                datasets: [{
+                    label: 'Чиста сума продаж',
+                    data: [{% for item in qs %}{{ item.NetAmount }},{% endfor %}],
+                    backgroundColor: [{% for i in "x"|rjust:"100" %}getRandomColorHex(),{% endfor %}],
+                    borderColor: [],
+                    borderWidth: 1
+                },
+                {
+                    label: 'Податок',
+                    data: [{% for item in qs %}{{ item.Tax }},{% endfor %}],
+                    backgroundColor: [{% for i in "x"|rjust:"100" %}getRandomColorHex(),{% endfor %}],
+                    borderColor: [],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks:{
+                            beginAtZero: true
+                        },
+                        stacked: true
+                    }],
+                    xAxes: [{
+                        stacked: true
+                    }]
+                }
+            }
+        });
+    });
+
+    function getRandomColorHex() {
+    var hex = "0123456789ABCDEF",
+        color = "#";
+    for (var i = 1; i <= 6; i++) {
+      color += hex[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+    </script>
+    <canvas id="myChart" width="auto" height="auto"></canvas>
+{% endblock content %}
