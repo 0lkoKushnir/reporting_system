@@ -14,7 +14,7 @@ def home(request, *args, **kwargs):
 '''
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from .models import CountryModel
+from .models import CountryModel, SalesRegionCategoryModel
 
 
 def home(request):
@@ -27,4 +27,31 @@ class CountryChartView(TemplateView):
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
 		context['qs'] = CountryModel.objects.all()
+		return context
+
+
+class SalesRegionCategoryChartView(TemplateView):
+	template_name = 'report/salesRegionCategory.html'
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['qs'] = SalesRegionCategoryModel.objects.all()
+		return context
+
+
+class SalesUSACategoryChartView(TemplateView):
+	template_name = 'report/salesUSACategory.html'
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['qs'] = SalesRegionCategoryModel.objects.all()
+		return context
+
+
+class SalesNONUSACategoryChartView(TemplateView):
+	template_name = 'report/salesNONUSACategory.html'
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['qs'] = SalesRegionCategoryModel.objects.all()
 		return context

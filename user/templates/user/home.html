@@ -12,8 +12,7 @@
     <table class="table table-bordered table-striped" style="text-align: center;">
 		<tr><th>Вітаємо у Chartly! Що Ви хочете оглянути?</th></tr>
 		<tr><th><a href="{% url 'tables-home' %}">Таблиці</a></th></tr>
-		<tr><th><a href="#">Звіти</a></th></tr>
-		<tr><th><a href="#">Інформаційні панелі</a></th></tr>
+		<tr><th><a href="{% url 'reports-home' %}">Звіти та інформаційні панелі</a></th></tr>
 		<tr><th><a href="{% url 'profile' %}">Інформацію про профіль</a></th></tr>
 	</table>
 {% endblock content %}

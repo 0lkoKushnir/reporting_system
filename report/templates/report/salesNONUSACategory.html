@@ -1,0 +1,41 @@
+{% extends "user/base.html" %}
+{% block content %}
+    <h1>Найпопулярніші категорії в інших країнах</h1>
+    <script>
+    $(document).ready(function(){
+        var ctx = document.getElementById('myChart2').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: [{% for item in qs %}{% if item.Region == 'Non-USA' %}'{{ item.Category }}',{% endif %}{% endfor %}],
+                datasets: [{
+                    label: 'Чиста сума продаж',
+                    data: [{% for item in qs %}{% if item.Region == 'Non-USA' %}{{ item.Quantity }},{% endif %}{% endfor %}],
+                    backgroundColor: [{% for i in "x"|rjust:"100" %}getRandomColorHex(),{% endfor %}],
+                    borderColor: [],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks:{
+                            beginAtZero: true
+                        },
+                    }],
+                }
+            }
+        });
+    });
+
+    function getRandomColorHex() {
+    var hex = "0123456789ABCDEF",
+        color = "#";
+    for (var i = 1; i <= 6; i++) {
+      color += hex[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+    </script>
+    <canvas id="myChart2" width="auto" height="auto"></canvas>
+{% endblock content %}

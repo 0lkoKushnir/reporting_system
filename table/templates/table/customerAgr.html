@@ -1,0 +1,29 @@
+{% extends "table/base_table.html" %}
+{% block content %}
+	<a href="{% url 'tables-customer' %}">До таблиці</a>
+
+	<table class="table table-bordered table-striped">
+		<tr><th>Тип агрегації</th><th>Колонка агрегації</th><th>Значення колонки</th><th>Значення агрегації</th></tr>
+		<tr><th>Кількість записів</th><td></td><td></td><td>20000</td></tr>
+		<tr><th>Кількість записів</th><td>Gender</td><td>M</td><td>10045</td></tr>
+		<tr><th>Кількість записів</th><td>Gender</td><td>F</td><td>9955</td></tr>
+		<tr><th>Найменший вік</th><td></td><td></td><td>18</td></tr>
+		<tr><th>Найбільший вік</th><td></td><td></td><td>90</td></tr>
+		<tr><th>Середній вік</th><td></td><td></td><td>53</td></tr>
+		<tr><th>Найменший вік</th><td>Gender</td><td>M</td><td>18</td></tr>
+		<tr><th>Найбільший вік</th><td>Gender</td><td>M</td><td>90</td></tr>
+		<tr><th>Середній вік</th><td>Gender</td><td>M</td><td>53</td></tr>
+		<tr><th>Найменший вік</th><td>Gender</td><td>F</td><td>18</td></tr>
+		<tr><th>Найбільший вік</th><td>Gender</td><td>F</td><td>90</td></tr>
+		<tr><th>Середній вік</th><td>Gender</td><td>F</td><td>53</td></tr>
+		<tr><th>Найменший прибуток</th><td></td><td></td><td>20000</td></tr>
+		<tr><th>Найбільший прибуток</th><td></td><td></td><td>100000</td></tr>
+		<tr><th>Середній прибуток</th><td></td><td></td><td>59944</td></tr>
+		<tr><th>Найменший прибуток</th><td>Gender</td><td>M</td><td>20000</td></tr>
+		<tr><th>Найбільший прибуток</th><td>Gender</td><td>M</td><td>100000</td></tr>
+		<tr><th>Середній прибуток</th><td>Gender</td><td>M</td><td>59719</td></tr>
+		<tr><th>Найменший прибуток</th><td>Gender</td><td>F</td><td>20000</td></tr>
+		<tr><th>Найбільший прибуток</th><td>Gender</td><td>F</td><td>100000</td></tr>
+		<tr><th>Середній прибуток</th><td>Gender</td><td>F</td><td>60170</td></tr>
+	</table>
+{% endblock content %}

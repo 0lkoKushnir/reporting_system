@@ -16,6 +16,10 @@ def CustomerView(request):
 	return render(request, 'table/customer.html', {'CustomerModel':result, 'title':'Клієнти', 'table_name':'Клієнти'})
 
 
+def CustomerAgrView(request):
+	return render(request, 'table/customerAgr.html', {'title':'Дані про таблицю "Клієнти"', 'table_name':'Дані про таблицю "Клієнти"'})
+
+
 def DateView(request):
 	conn = pyodbc.connect('Driver=%s;Server=%s;Database=%s;Trusted_Connection=yes;'%(driver, server, database))
 	cursor = conn.cursor()
@@ -38,6 +42,10 @@ def LocationView(request):
 	cursor.execute('SELECT * FROM dbo.Location WHERE LocationID <= 1000')
 	result = cursor.fetchall()
 	return render(request, 'table/location.html', {'LocationModel':result, 'title':'Локації', 'table_name':'Локації'})
+
+
+def LocationAgrView(request):
+	return render(request, 'table/locationAgr.html', {'title':'Дані про таблицю "Локації"', 'table_name':'Дані про таблицю "Локації"'})
 
 
 def ProductView(request):

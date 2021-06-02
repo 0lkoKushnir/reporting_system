@@ -7,6 +7,31 @@ class CustomerModel(models.Model):
 	Income = models.IntegerField()
 	Gender = models.CharField(max_length=10)
 
+'''
+class CustomerAgregateModel(models.Model):
+	countTotal = models.IntegerField()
+	countM = models.IntegerField()
+	countF = models.IntegerField()
+	minAgeTotal = models.IntegerField()
+	minAgeM = models.IntegerField()
+	minAgeF = models.IntegerField()
+	maxAgeTotal = models.IntegerField()
+	maxAgeM = models.IntegerField()
+	maxAgeF = models.IntegerField()
+	avgAgeTotal = models.IntegerField()
+	avgAgeM = models.IntegerField()
+	avgAgeF = models.IntegerField()
+	minIncomeTotal = models.IntegerField()
+	minIncomeM = models.IntegerField()
+	minIncomeF = models.IntegerField()
+	maxIncomeTotal = models.IntegerField()
+	maxIncomeM = models.IntegerField()
+	maxIncomeF = models.IntegerField()
+	avgIncomeTotal = models.IntegerField()
+	avgIncomeM = models.IntegerField()
+	avgIncomeF = models.IntegerField()
+'''
+	
 
 class DateModel(models.Model):
 	DateID = models.IntegerField()

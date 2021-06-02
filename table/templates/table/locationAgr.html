@@ -1,0 +1,24 @@
+{% extends "table/base_table.html" %}
+{% block content %}
+	<a href="{% url 'tables-location' %}">До таблиці</a>
+
+	<table class="table table-bordered table-striped">
+		<tr><th>Тип агрегації</th><th>Колонка агрегації</th><th>Значення колонки</th><th>Значення агрегації</th></tr>
+		<tr><th>Кількість записів</th><td></td><td></td><td>20000</td></tr>
+
+		<tr><th>Кількість записів</th><td>Region</td><td>USA</td><td>10000</td></tr>
+		<tr><th>Кількість записів</th><td>Region</td><td>Non-USA</td><td>10000</td></tr>
+
+		<tr><th>Кількість записів</th><td>Country</td><td>US</td><td>10000</td></tr>
+		<tr><th>Кількість записів</th><td>Country</td><td>Japan</td><td>995</td></tr>
+		<tr><th>Кількість записів</th><td>Country</td><td>Chile</td><td>990</td></tr>
+		<tr><th>Кількість записів</th><td>Country</td><td>Russia</td><td>959</td></tr>
+		<tr><th>Кількість записів</th><td>Country</td><td>Canada</td><td>975</td></tr>
+		<tr><th>Кількість записів</th><td>Country</td><td>South Africa</td><td>1033</td></tr>
+		<tr><th>Кількість записів</th><td>Country</td><td>UK</td><td>989</td></tr>
+		<tr><th>Кількість записів</th><td>Country</td><td>Australia</td><td>1003</td></tr>
+		<tr><th>Кількість записів</th><td>Country</td><td>France</td><td>1047</td></tr>
+		<tr><th>Кількість записів</th><td>Country</td><td>Germany</td><td>963</td></tr>
+		<tr><th>Кількість записів</th><td>Country</td><td>China</td><td>1046</td></tr>
+	</table>
+{% endblock content %}

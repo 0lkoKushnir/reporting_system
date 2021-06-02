@@ -1,6 +1,27 @@
 {% extends "user/base.html" %}
 {% block content %}
-    <h1>Звіти</h1>
+    <h1>Звіти та інформаційні панелі</h1>
     
-    <a href="{% url 'reports-country' %}">Продаж по країнах</a>
+    <table class="table table-bordered table-striped" style="text-align: center;">
+        <!--<tr>
+            <th>Тип</th>
+            <th>Назва</th>
+        </tr>-->
+        <tr>
+            <th>Звіт</th>
+            <td><a href="{% url 'reports-country' %}">Продаж по країнах</a></td>
+        </tr>
+        <tr>
+            <th>Звіт</th>
+            <td><a href="{% url 'reports-sales-usa-category' %}">Популярні категорії в США</a></td>
+        </tr>
+        <tr>
+            <th>Звіт</th>
+            <td><a href="{% url 'reports-sales-nonusa-category' %}">Популярні категорії в інших країнах</a></td>
+        </tr>
+        <tr>
+            <th>Інформаційна панель</th>
+            <td><a href="{% url 'reports-sales-region-category' %}">Популярні категорії по регіонах</a></td>
+        </tr>
+    </table>
 {% endblock content %}

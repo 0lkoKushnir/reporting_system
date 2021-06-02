@@ -34,7 +34,7 @@
 					<!-- Navbar Right Side -->
 					<div class="navbar-nav">
 						{% if user.is_superuser %}
-							<a class="nav-item nav-link" href="admin/">Адміністрування</a>
+							<a class="nav-item nav-link" href="http://127.0.0.1:8000/admin//">Адміністрування</a>
 						{% endif %}
 						<a class="nav-item nav-link" href="{% url 'profile' %}">Профіль</a>
 						<a class="nav-item nav-link" href="{% url 'logout' %}">Вийти</a>
