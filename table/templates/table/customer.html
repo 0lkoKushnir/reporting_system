@@ -1,22 +1,26 @@
 {% extends "table/base_table.html" %}
 {% block content %}
-	<a href="{% url 'tables-customer-agr' %}">Переглянути дані</a>
+	<a href="{% url 'tables-customer-agr' %}">Переглянути агреговані дані</a>
 	<table class="table table-bordered table-striped">
-		<tr>
-			<th>ID</th>
-			<th>Full Name</th>
-			<th>Age</th>
-			<th>Income</th>
-			<th>Gender</th>
-		</tr>
-		{% for data in CustomerModel %}
-		<tr>
-			<td>{{ data.CustomerID }}</td>
-			<td>{{ data.FullName }}</td>
-			<td>{{ data.Age }}</td>
-			<td>{{ data.Income }}</td>
-			<td>{{ data.Gender }}</td>
-		</tr>
-		{% endfor %}
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Full Name</th>
+				<th>Age</th>
+				<th>Income</th>
+				<th>Gender</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for data in CustomerModel %}
+			<tr>
+				<td>{{ data.CustomerID }}</td>
+				<td>{{ data.FullName }}</td>
+				<td>{{ data.Age }}</td>
+				<td>{{ data.Income }}</td>
+				<td>{{ data.Gender }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
 	</table>
 {% endblock content %}

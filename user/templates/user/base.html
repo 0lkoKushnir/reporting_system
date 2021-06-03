@@ -70,5 +70,154 @@
 		{% endif %}
 		{% block content %}{% endblock %}
 	</main>
+
+	<script>
+    $(document).ready(function(){
+        var ctx = document.getElementById('pieUSA').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: [{% for item in qs %}{% if item.Region == 'USA' %}'{{ item.Category }}',{% endif %}{% endfor %}],
+                datasets: [{
+                    label: 'Чиста сума продаж',
+                    data: [{% for item in qs %}{% if item.Region == 'USA' %}{{ item.Quantity }},{% endif %}{% endfor %}],
+                    backgroundColor: [{% for i in "x"|rjust:"100" %}getRandomColorHex(),{% endfor %}]
+                }]
+            },
+            options: { scales: { yAxes: [{ ticks:{ beginAtZero: true }, }], } }
+        });
+    });
+
+    $(document).ready(function(){
+        var ctx = document.getElementById('pieNonUSA').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: [{% for item in qs %}{% if item.Region == 'Non-USA' %}'{{ item.Category }}',{% endif %}{% endfor %}],
+                datasets: [{
+                    label: 'Чиста сума продаж',
+                    data: [{% for item in qs %}{% if item.Region == 'Non-USA' %}{{ item.Quantity }},{% endif %}{% endfor %}],
+                    backgroundColor: [{% for i in "x"|rjust:"100" %}getRandomColorHex(),{% endfor %}]
+                }]
+            },
+            options: { scales: { yAxes: [{ ticks:{ beginAtZero: true }, }], } }
+        });
+    });
+    
+    $(document).ready(function(){
+        var ctx = document.getElementById('barCountryTotal').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [{% for item in qs %}'{{ item.Country }}',{% endfor %}],
+                datasets: [{
+                    label: 'Чиста сума продаж',
+                    data: [{% for item in qs %}{{ item.NetAmount }},{% endfor %}],
+                    backgroundColor: [{% for i in "x"|rjust:"100" %}getRandomColorHex(),{% endfor %}]
+                },
+                {
+                    label: 'Податок',
+                    data: [{% for item in qs %}{{ item.Tax }},{% endfor %}],
+                    backgroundColor: [{% for i in "x"|rjust:"100" %}getRandomColorHex(),{% endfor %}]
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks:{
+                            beginAtZero: true,
+                            callback: function(value, index, values) {
+                                return '$' + value;
+                            }
+                        },
+                        stacked: true
+                    }],
+                    xAxes: [{ stacked: true }]
+                }
+            }
+        });
+    });
+
+        $(document).ready(function(){
+        var canvas = document.getElementById("barCountryMonth");
+        var ctx = canvas.getContext('2d');
+
+        countries = [{% for i in "x"|rjust:"11" %}getRandomColorHex(),{% endfor %}]
+
+        var data = {
+          labels: ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"],
+          datasets: [{
+              label: "Австралія",
+              fill: false,
+              lineTension: 0,
+              backgroundColor: countries[0],
+              borderColor: countries[0],
+              data: [{% for item in qs %}{% if item.Country == 'Австралія' %}{{ item.TotalAmount }},{% endif %}{% endfor %}],
+            }, {
+              label: "Канада",
+              fill: false,
+              lineTension: 0,
+              backgroundColor: countries[1],
+              borderColor: countries[1],
+              data: [{% for item in qs %}{% if item.Country == 'Канада' %}{{ item.TotalAmount }},{% endif %}{% endfor %}],
+            }, {
+              label: "Чилі",
+              fill: false,
+              lineTension: 0,
+              backgroundColor: countries[2],
+              borderColor: countries[2],
+              data: [{% for item in qs %}{% if item.Country == 'Чилі' %}{{ item.TotalAmount }},{% endif %}{% endfor %}],
+            }, {
+              label: "США",
+              fill: false,
+              lineTension: 0,
+              backgroundColor: countries[7],
+              borderColor: countries[7],
+              data: [{% for item in qs %}{% if item.Country == 'США' %}{{ item.TotalAmount }},{% endif %}{% endfor %}],
+            }, {
+              label: "Південна Африка",
+              fill: false,
+              lineTension: 0,
+              backgroundColor: countries[10],
+              borderColor: countries[10],
+              data: [{% for item in qs %}{% if item.Country == 'Південна Африка' %}{{ item.TotalAmount }},{% endif %}{% endfor %}],
+            }
+
+          ]
+        };
+
+        var options = {
+          scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true,
+                            callback: function(value, index, values) {
+                                return '$' + value;
+                            }
+                        },
+                        scaleLabel: {
+                             display: true,
+                             fontSize: 20 
+                          }
+                    }]            
+                }  
+        };
+
+        var myBarChart = new Chart(ctx, {
+          type: 'line',
+          data: data,
+          options: options
+        });
+    });
+
+    function getRandomColorHex() {
+	    var hex = "0123456789ABCDEF",
+	        color = "#";
+	    for (var i = 1; i <= 6; i++) {
+	      color += hex[Math.floor(Math.random() * 16)];
+	    }
+	    return color;
+	}
+    </script>
 </body>
 </html>

@@ -1,0 +1,14 @@
+{% extends "user/base.html" %}
+{% block content %}
+    <h1>Продажі в країнах</h1>
+    <div class='row'>
+        <div class="col-sm-6">
+            <h4>Загальний продаж</h4>
+            <canvas id="barCountryMonth" width="auto" height="auto"></canvas>
+        </div>
+        <div class="col-sm-6">
+            <h4>Щомісячні продажі</h4>
+            <canvas id="barCountryTotal" width="auto" height="auto"></canvas>
+        </div>
+    </div>
+{% endblock content %}

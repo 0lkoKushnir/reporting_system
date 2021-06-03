@@ -9,19 +9,23 @@
         </tr>-->
         <tr>
             <th>Звіт</th>
-            <td><a href="{% url 'reports-country' %}">Продаж по країнах</a></td>
+            <td><a href="{% url 'reports-country' %}">Продажі по країнах</a></td>
         </tr>
         <tr>
             <th>Звіт</th>
-            <td><a href="{% url 'reports-sales-usa-category' %}">Популярні категорії в США</a></td>
+            <td><a href="{% url 'reports-sales-country-month' %}">Щомісячні продажі в країнах</a></td>
         </tr>
         <tr>
             <th>Звіт</th>
-            <td><a href="{% url 'reports-sales-nonusa-category' %}">Популярні категорії в інших країнах</a></td>
+            <td><a href="{% url 'reports-sales-usa-category' %}">Популярні жанри в США</a></td>
+        </tr>
+        <tr>
+            <th>Звіт</th>
+            <td><a href="{% url 'reports-sales-nonusa-category' %}">Популярні жанри в країнах</a></td>
         </tr>
         <tr>
             <th>Інформаційна панель</th>
-            <td><a href="{% url 'reports-sales-region-category' %}">Популярні категорії по регіонах</a></td>
+            <td><a href="{% url 'reports-sales-region-category' %}">Популярні жанри по регіонах</a></td>
         </tr>
     </table>
 {% endblock content %}
